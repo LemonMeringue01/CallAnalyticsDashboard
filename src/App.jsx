@@ -44,6 +44,14 @@ function App() {
         }
         settotalSuccess(success);
 
+        let fail = 0;
+        for (let i = 0; i<result.length; i++){
+          if(result[i].callStatus == false){
+            fail+=1;
+          }
+        }
+        settotalFail(fail);
+
 
       } catch (err) {
         console.error(err);
@@ -55,13 +63,7 @@ function App() {
 
   return (
     <>
-      <h1>Hello World!</h1>
-
-
-      <h1 id="printNames">
-        {data.map(item => item.callerName + " ")}
-      </h1>
-
+    
       <h1 id="printTotal">
         {data.length}
       </h1>
@@ -77,6 +79,13 @@ function App() {
       <h1 id="printTotalSuccess">
         {totalSuccess}
       </h1>
+
+      <h1 id="printTotalSuccess">
+        {totalFail}
+      </h1>
+
+
+
 
     </>
   );
