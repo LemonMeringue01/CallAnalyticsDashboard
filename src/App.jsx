@@ -64,22 +64,28 @@ function App() {
   return (
     <>
     
+
+      <h1>Total Calls</h1>
       <h1 id="printTotal">
         {data.length}
       </h1>
 
+      <h1>Total Calls Cost</h1>
       <h1 id="printCallCost">
         {sumCost}
       </h1>
 
+      <h1>Average Call Duration</h1>
       <h1 id="printAvgDuration">
         {avgDuration}
       </h1>
 
+      <h1>Total Successful Calls</h1>
       <h1 id="printTotalSuccess">
         {totalSuccess}
       </h1>
 
+      <h1>total Failed Calls</h1>
       <h1 id="printTotalSuccess">
         {totalFail}
       </h1>
