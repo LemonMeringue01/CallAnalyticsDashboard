@@ -128,3 +128,36 @@
     @apply font-sans;
     }
 }
+
+
+table{
+  border:1px solid black;
+  filter: drop-shadow(2px 2px 2px);
+  width:20%;
+  display:inline-block;
+  padding:0.5%;
+  background: #a4c5db;
+  background: linear-gradient(90deg,rgba(164, 197, 219, 1) 0%, rgba(168, 240, 198, 1) 50%, rgba(255, 247, 179, 1) 100%);
+  font-weight: bold;
+}
+
+
+h1{
+  text-align:center;
+  font-weight:bold;
+  font-size:x-large;
+}
+
+*{
+  margin:10px;
+}
+
+#mainCard, #callDurationCard{
+  padding:10px;
+  background-color: #a4c5db;
+}
+
+#callDurationCard{
+  background: #dbd5a4;
+  background: linear-gradient(90deg,rgba(219, 213, 164, 1) 0%, rgba(168, 209, 240, 1) 50%, rgba(179, 255, 183, 1) 100%);
+}

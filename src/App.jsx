@@ -11,6 +11,7 @@ function App() {
   const [avgDuration, setAvgDuration] = useState(0);
   const [totalSuccess, settotalSuccess] = useState(0);
   const [totalFail, settotalFail] = useState(0);
+  const [longCall, setLongCall] = useState(0);
 
 
   useEffect(() => {
@@ -52,6 +53,14 @@ function App() {
         }
         settotalFail(fail);
 
+        let longCall = result[0].callDuration;
+        for (let i = 1; i<result.length; i++){
+          if(result[i].callDuration > longCall){
+            longCall = result[i].callDuration;
+          }
+        }
+        setLongCall(longCall);
+
 
       } catch (err) {
         console.error(err);
@@ -64,34 +73,62 @@ function App() {
   return (
     <>
     
+    <h1>Call Analytics</h1>
 
-      <h1>Total Calls</h1>
-      <h1 id="printTotal">
-        {data.length}
-      </h1>
+      <div id = "mainCard">
+        <table>
+          <tr>
+            <td>Total Calls</td>
+          </tr>
+          <tr>
+            <td>{data.length}</td>
+          </tr>
+        </table>
+              <table>
+          <tr>
+            <td>Total Calls Cost</td>
+          </tr>
+          <tr>
+            <td>{sumCost}</td>
+          </tr>
+        </table>
+              <table>
+          <tr>
+            <td>Average Call Duration</td>
+          </tr>
+          <tr>
+            <td>{avgDuration}</td>
+          </tr>
+        </table>
+              <table>
+          <tr>
+            <td>Total Successful Calls</td>
+          </tr>
+          <tr>
+            <td>{totalSuccess}</td>
+          </tr>
+        </table>
+              <table>
+          <tr>
+            <td>Total Failed Calls</td>
+          </tr>
+          <tr>
+            <td>{totalFail}</td>
+          </tr>
+        </table>
+      </div>
 
-      <h1>Total Calls Cost</h1>
-      <h1 id="printCallCost">
-        {sumCost}
-      </h1>
+      <div id = "callDurationCard">
+        <table>
+          <tr>
+            <td>Longest Call</td>
+          </tr>
+          <tr>
+            <td>{longCall}s</td>
+          </tr>
+        </table>
 
-      <h1>Average Call Duration</h1>
-      <h1 id="printAvgDuration">
-        {avgDuration}
-      </h1>
-
-      <h1>Total Successful Calls</h1>
-      <h1 id="printTotalSuccess">
-        {totalSuccess}
-      </h1>
-
-      <h1>total Failed Calls</h1>
-      <h1 id="printTotalSuccess">
-        {totalFail}
-      </h1>
-
-
-
+      </div>
 
     </>
   );
